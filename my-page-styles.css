@@ -1,13 +1,6 @@
-/* Общие строгие настройки */
-:root {
-  --bg-color: #f8f9fa;
-  --text-main: #212529;
-  --text-muted: #495057;
-  --accent: #212529; /* Минималистичный черный акцент */
-  --card-bg: #ffffff;
-  --border-color: #dee2e6;
-}
-
+/* ==========================================================================
+   1. БАЗОВЫЕ СТИЛИ И ОБНУЛЕНИЕ
+   ========================================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -16,54 +9,62 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-main);
+  color: #212529;
+  background-color: #ffffff;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 .container {
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-/* Навигация */
+/* ==========================================================================
+   2. ШАПКА И НАВИГАЦИЯ (АДАПТИВНАЯ)
+   ========================================================================== */
 .header {
-  background-color: var(--card-bg);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid #dee2e6;
+  background-color: #ffffff;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
 .menu {
-  max-width: 960px;
-  margin: 0 auto;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; /* Позволяет ссылкам переноситься на смартфонах */
+  gap: 15px;
+  max-width: 1100px;
+  margin: 0 auto;
   padding: 15px 20px;
-  gap: 30px;
 }
 
 .menu a {
   text-decoration: none;
-  color: var(--text-muted);
+  color: #495057;
   font-weight: 500;
   font-size: 14px;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
+  white-space: nowrap; /* Запрещает некрасивый разрыв слов внутри ссылки */
 }
 
 .menu a:hover {
-  color: var(--accent);
+  color: #212529;
 }
 
-/* Главный экран */
+/* ==========================================================================
+   3. ГЛАВНЫЙ ЭКРАН (HERO SECTION) — ТЕКСТ + ФОТО
+   ========================================================================== */
 .hero-section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 80px 0;
   gap: 40px;
+  padding: 60px 0;
 }
 
 .hero-text {
@@ -74,36 +75,21 @@ body {
   font-size: 42px;
   font-weight: 700;
   letter-spacing: -1px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  color: #212529;
 }
 
 .hero-subtitle {
   font-size: 18px;
-  font-weight: 600;
-  color: var(--text-muted);
-  margin-bottom: 20px;
+  font-weight: 500;
+  color: #495057;
+  margin-bottom: 24px;
 }
 
 .hero-description {
   font-size: 16px;
-  color: var(--text-muted);
-  margin-bottom: 30px;
-}
-
-.cta-button {
-  display: inline-block;
-  background-color: var(--accent);
-  color: #ffffff;
-  text-decoration: none;
-  padding: 12px 24px;
-  font-weight: 600;
-  font-size: 15px;
-  border-radius: 4px;
-  transition: opacity 0.2s;
-}
-
-.cta-button:hover {
-  opacity: 0.9;
+  color: #495057;
+  margin-bottom: 20px;
 }
 
 .hero-photo {
@@ -114,52 +100,75 @@ body {
   width: 280px;
   height: 280px;
   object-fit: cover;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-/* Секции общего вида */
-section {
+/* Кнопка действия */
+.cta-button {
+  display: inline-block;
+  background-color: #212529;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-weight: 500;
+  font-size: 15px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.cta-button:hover {
+  background-color: #495057;
+}
+
+/* ==========================================================================
+   4. БЛОКИ С КАРТОЧКАМИ (НАПРАВЛЕНИЯ И ОБРАЗОВАНИЕ)
+   ========================================================================== */
+.services-section, .background-section, .contacts-section {
   padding: 60px 0;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid #dee2e6;
 }
 
-section h2 {
-  font-size: 24px;
+h2 {
+  font-size: 28px;
   font-weight: 700;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
   letter-spacing: -0.5px;
 }
 
-/* Сетка услуг (2 колонки) */
+/* Сетка для больших карточек (Психология / Процессы) */
 .services-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 30px;
 }
 
 .service-card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
   border-radius: 6px;
-  padding: 30px;
+  padding: 32px;
 }
 
 .card-icon {
-  font-size: 28px;
-  margin-bottom: 15px;
+  font-size: 30px;
+  margin-bottom: 16px;
 }
 
-.service-card h3 {
+.service-card h3, .service-card h4 {
   font-size: 20px;
   font-weight: 600;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
 }
 
 .card-target {
   font-size: 13px;
-  color: var(--text-muted);
-  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #868e96;
+  font-weight: 600;
   margin-bottom: 20px;
 }
 
@@ -168,108 +177,141 @@ section h2 {
 }
 
 .card-list li {
-  font-size: 14px;
-  color: var(--text-muted);
+  font-size: 15px;
+  color: #495057;
   margin-bottom: 12px;
   position: relative;
-  padding-left: 15px;
+  padding-left: 20px;
 }
 
+/* Красивые минималистичные точки у списков */
 .card-list li::before {
   content: "•";
+  color: #adb5bd;
+  font-weight: bold;
   position: absolute;
   left: 0;
-  color: var(--border-color);
+  top: 0;
 }
 
-/* Сетка квалификации (3 колонки) */
+/* ==========================================================================
+   5. МЕЛКАЯ СЕТКА БЭКГРАУНДА (4 КОЛОНКИ)
+   ========================================================================== */
 .bg-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 24px;
 }
 
 .bg-item h4 {
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .bg-item p {
   font-size: 14px;
-  color: var(--text-muted);
+  color: #495057;
 }
 
-/* Контакты */
+/* ==========================================================================
+   6. БЛОК КОНТАКТОВ И ПОДВАЛ
+   ========================================================================== */
 .contacts-section p {
-  font-size: 15px;
-  color: var(--text-muted);
-  margin-bottom: 25px;
+  font-size: 16px;
+  color: #495057;
+  margin-bottom: 24px;
+  max-width: 600px;
 }
 
 .contacts-links {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .contact-item {
   display: inline-block;
-  text-decoration: none;
-  color: var(--text-main);
-  font-weight: 600;
-  font-size: 15px;
-  border: 1px solid var(--border-color);
   padding: 12px 20px;
-  border-radius: 4px;
-  background-color: var(--card-bg);
-  transition: background-color 0.2s;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #212529;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
 }
 
-.contact-item:hover {
-  background-color: var(--bg-color);
+a.contact-item:hover {
+  background-color: #f8f9fa;
 }
 
-/* Подвал */
 .footer {
   padding: 40px 0;
+  border-top: 1px solid #dee2e6;
   text-align: center;
-  border-top: 1px solid var(--border-color);
-  font-size: 13px;
-  color: var(--text-muted);
+  background-color: #f8f9fa;
 }
 
-.footer-note {
-  margin-top: 5px;
-  font-size: 12px;
+.footer p {
+  font-size: 14px;
+  color: #868e96;
 }
 
-/* Адаптивность для мобильных устройств */
+/* ==========================================================================
+   7. УМНАЯ МОБИЛЬНАЯ АДАПТАЦИЯ (MEDIA QUERIES)
+   ========================================================================== */
 @media (max-width: 768px) {
+  /* Перестраиваем главный экран: фото теперь сверху, текст снизу */
   .hero-section {
-    flex-direction: column-reverse;
+    flex-direction: column-reverse; 
     text-align: center;
+    gap: 30px;
     padding: 40px 0;
   }
-  
+
   .hero-text h1 {
-    font-size: 32px;
+    font-size: 32px; /* Чуть уменьшаем шрифт заголовка на телефонах */
   }
-  
+
   .profile-img {
-    width: 200px;
-    height: 200px;
+    width: 220px;  /* Делаем фото чуть компактнее на мобильном экране */
+    height: 220px;
   }
-  
-  .services-grid, .bg-grid {
-    grid-template-columns: 1fr;
+
+  /* Центрируем кнопку и тексты */
+  .cta-button {
+    display: block;
+    max-width: 100%;
   }
-  
+
+  /* Адаптируем меню: ссылки стоят компактно */
   .menu {
-    justify-content: center;
-    gap: 15px;
+    padding: 10px;
+    gap: 12px;
   }
   
+  .menu a {
+    font-size: 13px;
+  }
+
+  /* Делаем списки в дисклеймерах в одну колонку на смартфонах */
+  #limits .card-list {
+    grid-template-columns: 1fr !important; 
+  }
+  
+  /* Увеличиваем отступы в карточках для удобства чтения с экрана */
+  .service-card {
+    padding: 24px;
+  }
+  
+  /* Центрируем ссылки контактов на мобилках */
   .contacts-links {
     flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .contact-item {
+    text-align: center;
   }
 }
