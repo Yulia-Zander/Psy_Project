@@ -74,7 +74,7 @@ body {
 }
 
 .hero-text {
-  flex: 1;
+  flex: 1; /* Растягивается на всю ширину, если блока .hero-photo нет */
 }
 
 .hero-text h1 {
@@ -110,6 +110,11 @@ body {
   align-items: center;
 }
 
+/* ЗАЩИТА: Если контейнер фото пустой (на других страницах), полностью скрываем его */
+.hero-photo:empty {
+  display: none;
+}
+
 /* Прямоугольное фото со скругленными углами и защитой от искажений */
 .profile-img {
   width: 280px;
@@ -119,6 +124,11 @@ body {
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   display: block;
+}
+
+/* Глобальная защита: если у картинки потерялся или не указан путь src, скрываем её */
+img:not([src]), img[src=""] {
+  display: none !important;
 }
 
 /* Секция ограничений (НЕ работаю) */
@@ -305,7 +315,7 @@ body {
    ========================================================================== */
 @media (max-width: 768px) {
   .hero-section {
-    flex-direction: column-reverse; /* Фото сверху, текст снизу на мобилках */
+    flex-direction: column-reverse; /* Фото сверху, text снизу на мобилках */
     text-align: center;
     gap: 25px;
     padding: 30px 0;
@@ -339,7 +349,7 @@ body {
     margin: 0 auto; 
   }
 
-  /* Исправление меню на мобильных: элементы в виде красивых кнопочек */
+  /* Исправление меню на мобильных */
   .menu {
     gap: 8px;
     justify-content: center;
