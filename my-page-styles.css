@@ -45,9 +45,8 @@ body {
 .menu {
   display: flex;
   align-items: center;
-  gap: 20px;         /* Чуть уменьшили расстояние между ссылками для компактности */
-  flex-wrap: wrap;   /* Позволяет ссылкам переносить себя, если экран узкий */
-  width: 100%;
+  gap: 20px;
+  flex-wrap: wrap;   /* Позволяет ссылкам красиво переноситься на узких экранах */
 }
 
 .menu-link {
@@ -79,7 +78,7 @@ body {
 }
 
 .hero-text h1 {
-  font-size: 38px; /* Немного увеличили для десктопа для солидности */
+  font-size: 38px;
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 15px;
@@ -105,8 +104,8 @@ body {
   margin-top: 20px;
 }
 
+/* Исправлено для десктопа: убрали жесткий flex: 0 0 280px, который ломал адаптивность */
 .hero-photo {
-  flex: 0 0 280px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -115,8 +114,8 @@ body {
 .profile-img {
   width: 280px;
   height: 280px;
-  aspect-ratio: 1 / 1; /* Гарантирует идеальный квадрат перед скруглением */
-  flex-shrink: 0;       /* Запрещает браузеру сжимать картинку по бокам */
+  aspect-ratio: 1 / 1; 
+  flex-shrink: 0;       /* Запрещает браузеру сжимать картинку в овал */
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -306,7 +305,7 @@ body {
     padding-top: 15px;
   }
 
-  /* Жесткий воротник для фото на Айфоне: теперь ТОЛЬКО круг */
+  /* Жесткая блокировка пропорций: теперь ТОЛЬКО идеальный круг на любых iPhone */
   .profile-img {
     width: 200px !important;
     height: 200px !important;
@@ -317,33 +316,34 @@ body {
   }
   
   .hero-photo {
-    flex: 0 0 200px;
-    width: 200px;
-    height: 200px;
-    margin: 0 auto; /* Центрируем контейнер с фото */
+    flex: 0 0 200px !important; /* Усмиряем контейнер на мобильных */
+    width: 200px !important;
+    height: 200px !important;
+    margin: 0 auto; 
   }
 
-  /* Исправление меню на мобильных: перестраиваем в красивую плитку */
+  /* Исправление меню на мобильных */
   .menu {
-    gap: 10px;
+    gap: 8px;
     justify-content: center;
   }
   
   .menu-link {
     font-size: 13px;
-    padding: 6px 10px;
-    background-color: #f8f9fa; /* Делаем ссылки на телефоне похожими на аккуратные кнопочки */
+    padding: 6px 12px;
+    background-color: #f8f9fa; 
     border: 1px solid var(--border-color);
     border-radius: 4px;
   }
   
   .back-link {
     margin-right: 0; 
-    width: 100%; /* Ссылка "На главную" красиво встанет на самый верх по центру */
+    width: 100%; /* Ссылка "На главную" гарантированно встает на самый верх по центру */
     text-align: center;
     background-color: transparent;
     border: none;
     font-weight: 600;
+    padding-bottom: 4px;
   }
 
   .services-grid {
