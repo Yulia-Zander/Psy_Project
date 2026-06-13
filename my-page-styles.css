@@ -291,12 +291,12 @@ body {
   .hero-section {
     flex-direction: column-reverse; /* Фото сверху, текст снизу на мобилках */
     text-align: center;
-    gap: 30px;
-    padding: 40px 0;
+    gap: 25px;
+    padding: 30px 0;
   }
   
   .hero-text h1 {
-    font-size: 28px; /* Корректировка размера заголовка под экраны телефонов */
+    font-size: 26px;
   }
   
   .hero-quote {
@@ -306,30 +306,48 @@ body {
     padding-top: 15px;
   }
 
-  /* Безопасное сжатие фото на Айфонах без исчезновения */
+  /* Жесткий воротник для фото на Айфоне: теперь ТОЛЬКО круг */
   .profile-img {
-    width: 220px;
-    height: 220px;
+    width: 200px !important;
+    height: 200px !important;
+    max-width: 200px !important;
+    max-height: 200px !important;
+    aspect-ratio: 1 / 1 !important;
+    flex-shrink: 0 !important;
   }
   
   .hero-photo {
-    flex: auto;
+    flex: 0 0 200px;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto; /* Центрируем контейнер с фото */
   }
 
-  /* Исправление меню на мобильных */
+  /* Исправление меню на мобильных: перестраиваем в красивую плитку */
   .menu {
-    gap: 12px;
+    gap: 10px;
     justify-content: center;
   }
   
+  .menu-link {
+    font-size: 13px;
+    padding: 6px 10px;
+    background-color: #f8f9fa; /* Делаем ссылки на телефоне похожими на аккуратные кнопочки */
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+  }
+  
   .back-link {
-    margin-right: 0; /* Сбрасываем прижим влево, чтобы меню на телефоне встало ровно по центру */
-    width: 100%;    /* Ссылка "На главную" будет занимать верхнюю строчку меню по центру */
+    margin-right: 0; 
+    width: 100%; /* Ссылка "На главную" красиво встанет на самый верх по центру */
     text-align: center;
+    background-color: transparent;
+    border: none;
+    font-weight: 600;
   }
 
   .services-grid {
-    grid-template-columns: 1fr; /* Карточки встают в одну колонку и не вылезают */
+    grid-template-columns: 1fr; /* Карточки встают в одну колонку */
   }
 
   .service-card.full-width {
