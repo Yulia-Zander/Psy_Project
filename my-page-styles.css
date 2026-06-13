@@ -37,11 +37,16 @@ body {
   background: #ffffff;
   padding: 20px 0;
   border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .menu {
   display: flex;
+  align-items: center;
   gap: 25px;
+  flex-wrap: wrap; /* Защита: ссылки перенесутся на вторую строку на мобильном, а не растянут экран */
 }
 
 .menu-link {
@@ -49,6 +54,7 @@ body {
   color: var(--text-muted);
   font-weight: 500;
   transition: color 0.2s ease;
+  white-space: nowrap;
 }
 
 .menu-link:hover {
@@ -72,7 +78,7 @@ body {
 }
 
 .hero-text h1 {
-  font-size: 32px;
+  font-size: 38px; /* Немного увеличили для десктопа для солидности */
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 15px;
@@ -102,15 +108,17 @@ body {
   flex: 0 0 280px;
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
+/* ИСПРАВЛЕННЫЙ БЛОК ФОТО: теперь оно круглое и никогда не исчезнет */
 .profile-img {
-  width: 100%;
-  max-width: 280px;
+  width: 280px;
   height: 280px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  display: block;
 }
 
 /* Секция ограничений (НЕ работаю) */
@@ -145,7 +153,7 @@ body {
 }
 
 /* Секция образования */
-.education-section {
+.education-section, .services-section {
   margin-bottom: 60px;
 }
 
@@ -170,7 +178,7 @@ body {
   border-radius: 6px;
 }
 
-.service-card h4 {
+.service-card h4, .service-card h3 {
   font-size: 18px;
   margin-top: 0;
   margin-bottom: 10px;
@@ -274,13 +282,19 @@ body {
   margin: 0;
 }
 
-/* Адаптивность для мобильных устройств (Экран меньше 768px) */
+/* ==========================================================================
+   УЛУЧШЕННАЯ АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ (Экран меньше 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
   .hero-section {
     flex-direction: column-reverse; /* Фото сверху, текст снизу на мобилках */
     text-align: center;
     gap: 30px;
     padding: 40px 0;
+  }
+  
+  .hero-text h1 {
+    font-size: 28px; /* Корректировка размера заголовка под экраны телефонов */
   }
   
   .hero-quote {
@@ -290,8 +304,30 @@ body {
     padding-top: 15px;
   }
 
+  /* Безопасное сжатие фото на Айфонах без исчезновения */
+  .profile-img {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .hero-photo {
+    flex: auto;
+  }
+
+  /* Исправление меню на мобильных */
+  .menu {
+    gap: 12px;
+    justify-content: center;
+  }
+  
+  .back-link {
+    margin-right: 0; /* Сбрасываем прижим влево, чтобы меню на телефоне встало ровно по центру */
+    width: 100%;    /* Ссылка "На главную" будет занимать верхнюю строчку меню по центру */
+    text-align: center;
+  }
+
   .services-grid {
-    grid-template-columns: 1fr; /* Карточки встают в одну колонку */
+    grid-template-columns: 1fr; /* Карточки встают в одну колонку и не вылезают */
   }
 
   .service-card.full-width {
