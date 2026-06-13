@@ -1,20 +1,22 @@
-User-agent: ChatGPT-User
-Disallow: /
-
+# Запрещаем ChatGPT забирать тексты в общую базу обучения
 User-agent: GPTBot
 Disallow: /
 
+# Запрещаем Google использовать сайт для обучения Gemini
 User-agent: Google-Extended
 Disallow: /
 
+# Запрещаем Anthropic (создателям Claude) обучаться на сайте
 User-agent: AnthropicCrawler
 Disallow: /
 
-User-agent: Claude-Web
-Disallow: /
-
+# ПРИ ЭТОМ РАЗРЕШАЕМ поисковым ИИ-ассистентам индексировать сайт для выдачи в поиске
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
 
-User-agent: CCBot
-Disallow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Разрешаем стандартным поисковикам (Google, Яндекс), у которых есть свои ИИ-ответы
+User-agent: *
+Allow: /
