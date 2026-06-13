@@ -1,0 +1,275 @@
+/* Общие строгие настройки */
+:root {
+  --bg-color: #f8f9fa;
+  --text-main: #212529;
+  --text-muted: #495057;
+  --accent: #212529; /* Минималистичный черный акцент */
+  --card-bg: #ffffff;
+  --border-color: #dee2e6;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Навигация */
+.header {
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.menu {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-start;
+  padding: 15px 20px;
+  gap: 30px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.menu a:hover {
+  color: var(--accent);
+}
+
+/* Главный экран */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 0;
+  gap: 40px;
+}
+
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h1 {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.hero-description {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: var(--accent);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 4px;
+  transition: opacity 0.2s;
+}
+
+.cta-button:hover {
+  opacity: 0.9;
+}
+
+.hero-photo {
+  flex-shrink: 0;
+}
+
+.profile-img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+/* Секции общего вида */
+section {
+  padding: 60px 0;
+  border-top: 1px solid var(--border-color);
+}
+
+section h2 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  letter-spacing: -0.5px;
+}
+
+/* Сетка услуг (2 колонки) */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.service-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 30px;
+}
+
+.card-icon {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.service-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.card-target {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.card-list {
+  list-style: none;
+}
+
+.card-list li {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  position: relative;
+  padding-left: 15px;
+}
+
+.card-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--border-color);
+}
+
+/* Сетка квалификации (3 колонки) */
+.bg-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.bg-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.bg-item p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+/* Контакты */
+.contacts-section p {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+}
+
+.contacts-links {
+  display: flex;
+  gap: 20px;
+}
+
+.contact-item {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 15px;
+  border: 1px solid var(--border-color);
+  padding: 12px 20px;
+  border-radius: 4px;
+  background-color: var(--card-bg);
+  transition: background-color 0.2s;
+}
+
+.contact-item:hover {
+  background-color: var(--bg-color);
+}
+
+/* Подвал */
+.footer {
+  padding: 40px 0;
+  text-align: center;
+  border-top: 1px solid var(--border-color);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.footer-note {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 40px 0;
+  }
+  
+  .hero-text h1 {
+    font-size: 32px;
+  }
+  
+  .profile-img {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .services-grid, .bg-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .menu {
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .contacts-links {
+    flex-direction: column;
+  }
+}
