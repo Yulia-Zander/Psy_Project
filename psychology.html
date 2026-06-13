@@ -10,37 +10,41 @@
 <body>
 
   <header class="header">
-    <nav class="menu">
-      <a href="index.html">&larr; На главную</a> 
-      <a href="#about-psy">О подходе</a>
-      <a href="#education-psy">Образование</a>
-      <a href="scrum.html">Процессы для бизнеса</a>
-    </nav>
+    <div class="container">
+      <nav class="menu">
+        <a href="index.html" class="menu-link back-link">&larr; На главную</a> 
+        <a href="#about-psy" class="menu-link">О подходе</a>
+        <a href="#education-psy" class="menu-link">Образование</a>
+        <a href="scrum.html" class="menu-link">Процессы для бизнеса</a>
+      </nav>
+    </div>
   </header>
 
   <main class="container">
     
-    <section id="about-psy" class="hero-section" style="border-top: none;">
+    <section id="about-psy" class="hero-section">
       <div class="hero-text">
         <h1>Психологическое консультирование</h1>
         <p class="hero-subtitle">Юлия Зандер • Психолог-консультант со специализацией в КПТ</p>
-        <p class="hero-description">
-          Дополнительно использую в работе техники ACT (терапия принятия и ответственности) и схема-терапии. 
-          Провожу консультации по вопросам повышенной тревоги, страха. Работаю с проблемами со сном, нестабильной самооценкой, вопросами самоидентификации.
-        </p>
-        <p class="hero-description" style="font-style: italic; color: #495057;">
-          «Не избавляю от всех проблем сразу, иду целенаправленно по вашему запросу. Регулярно повышаю свою квалификацию, хожу на интервизии и супервизии. В настоящее время прохожу дополнительное обучение на клинического психолога».
-        </p>
+        <div class="hero-description-container">
+          <p class="hero-description">
+            Дополнительно использую в работе техники ACT (терапия принятия и ответственности) и схема-терапии. 
+            Провожу консультации по вопросам повышенной тревоги, страха. Работаю с проблемами со сном, нестабильной самооценкой, вопросами самоидентификации.
+          </p>
+          <p class="hero-quote">
+            «Не избавляю от всех проблем сразу, иду целенаправленно по вашему запросу. Регулярно повышаю свою квалификацию, хожу на интервизии и супервизии. В настоящее время прохожу дополнительное обучение на клинического психолога».
+          </p>
+        </div>
       </div>
       <div class="hero-photo">
         <img src="./my_photo_1.jpg" alt="Юлия Зандер" class="profile-img" oncontextmenu="return false;" draggable="false">
       </div>
     </section>
 
-    <section id="limits" class="services-section" style="background-color: #f1f3f5; padding: 40px; border-radius: 6px; border: 1px solid #dee2e6;">
-      <h3 style="font-weight: 700; margin-bottom: 15px; color: #212529;">С какими запросами я НЕ работаю:</h3>
-      <p style="font-size: 14px; color: #495057; margin-bottom: 15px;">В целях соблюдения профессиональной ethics и обеспечения безопасности клиентов, я сознательно ограничиваю круг тем и не принимаю в работу:</p>
-      <ul class="card-list" style="display: flex; flex-direction: column; gap: 10px;">
+    <section id="limits" class="limits-section">
+      <h3 class="limits-title">С какими запросами я НЕ работаю:</h3>
+      <p class="limits-text">В целях соблюдения профессиональной этики и обеспечения безопасности клиентов, я сознательно ограничиваю круг тем и не принимаю в работу:</p>
+      <ul class="limits-list">
         <li>Детей и подростков</li>
         <li>Клиентов с диагнозами ПРЛ, РПП, шизофрения</li>
         <li>Клиентов с суицидальными мыслями и намерениями</li>
@@ -49,12 +53,12 @@
       </ul>
     </section>
 
-    <section id="education-psy" class="background-section">
-      <h2>Образование и квалификация</h2>
+    <section id="education-psy" class="education-section">
+      <h2 class="section-title">Образование и квалификация</h2>
       <div class="services-grid">
         
         <div class="service-card">
-          <h4>Профессиональная переподготовка</h4>
+          <h4 class="card-title">Профессиональная переподготовка</h4>
           <p class="card-target">Академия Современной Психологии (1168 часов)</p>
           <ul class="card-list">
             <li>Психолог-консультант со специализацией в контекстуально-поведенческом подходе (ACT) — 600 часов, 2026 г.</li>
@@ -64,7 +68,7 @@
         </div>
 
         <div class="service-card">
-          <h4>Клинические и базовые дисциплины</h4>
+          <h4 class="card-title">Клинические и базовые дисциплины</h4>
           <p class="card-target">Институт перинатальной и репродуктивной психологии</p>
           <ul class="card-list">
             <li>Клиническая и медицинская психология, Патопсихология и патопсихологическая диагностика, Психопатология.</li>
@@ -72,10 +76,10 @@
           </ul>
         </div>
 
-        <div class="service-card" style="grid-column: 1 / -1;">
-          <h4>Академический базис (Высшее образование и ученая степень)</h4>
+        <div class="service-card full-width">
+          <h4 class="card-title">Академический базис (Высшее образование и ученая степень)</h4>
           <p class="card-target">Санкт-Петербургский Государственный Университет</p>
-          <ul class="card-list" style="display: flex; flex-direction: column; gap: 15px;">
+          <ul class="card-list tight-list">
             <li><strong>PhD (К.ф.-м.н.):</strong> защита диссертации в СПбГУ (2016 г.), направление — физика конденсированного состояния.</li>
             <li><strong>Магистратура Физфака:</strong> диплом магистра физики СПбГУ с отличием (Grade: 5.0 / 5.0) в 2013 г.</li>
             <li><strong>Магистратура Экономфака:</strong> диплом магистра СПбГЭУ по направлению «Общий и стратегический менеджмент» (2014 г.).</li>
@@ -85,23 +89,23 @@
       </div>
     </section>
 
-  </main>
-
-  <section class="container" style="padding-bottom: 60px;">
-    <div class="contacts-section" style="border-top: 1px solid #dee2e6; padding-top: 40px;">
-      <h2>Записаться на консультацию</h2>
-      <p>Если у вас есть конкретный запрос (повышенная тревожность, проблемы со сном или самооценкой), вы можете скопировать адрес почты (заменив текст в скобках на символ @) или изучить мой верифицированный профиль специалиста:</p>
+    <section id="contacts" class="contacts-section">
+      <h2 class="section-title">Записаться на консультацию</h2>
+      <p class="contacts-description">Если у вас есть конкретный запрос (повышенная тревожность, проблемы со сном или самооценкой), вы можете скопировать адрес почты (заменив текст в скобках на символ @) или изучить мой верифицированный профиль специалиста:</p>
       
       <div class="contacts-links">
-        <span class="contact-item" style="cursor: default;">📧 Email: startjuli <strong>[собака]</strong> gmail.com</span>
-        <a href="https://www.b17.ru/zander_yulia/" target="_blank" class="contact-item" style="border-color: #0056b3; color: #0056b3; font-weight: 700;">🌐 Профиль на B17.ru</a>
-        <a href="https://vk.com/egorovayuli" target="_blank" class="contact-item">🌐 ВКонтакте</a>
+        <span class="contact-item email-item">📧 Email: startjuli <strong>[собака]</strong> gmail.com</span>
+        <a href="https://www.b17.ru/zander_yulia/" target="_blank" rel="noopener" class="contact-link b17-link">🌐 Профиль на B17.ru</a>
+        <a href="https://vk.com/egorovayuli" target="_blank" rel="noopener" class="contact-link vk-link">🌐 ВКонтакте</a>
       </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
 
   <footer class="footer">
-    <p>&copy; Юлия Зандер • Санкт-Петербург / Белград</p>
+    <div class="container">
+      <p>&copy; Юлия Зандер • Санкт-Петербург / Белград</p>
+    </div>
   </footer>
 
 </body>
