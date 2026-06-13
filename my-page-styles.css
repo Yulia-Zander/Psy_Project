@@ -111,10 +111,11 @@ body {
   align-items: center;
 }
 
-/* ИСПРАВЛЕННЫЙ БЛОК ФОТО: теперь оно круглое и никогда не исчезнет */
 .profile-img {
   width: 280px;
   height: 280px;
+  aspect-ratio: 1 / 1; /* Гарантирует идеальный квадрат перед скруглением */
+  flex-shrink: 0;       /* Запрещает браузеру сжимать картинку по бокам */
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
