@@ -1,69 +1,69 @@
-/* ==========================================================================
-   1. БАЗОВЫЕ СТИЛИ И ОБНУЛЕНИЕ
-   ========================================================================== */
-* {
+/* CSS Стили для сайта Юлии Зандер */
+
+:root {
+  --primary-color: #0056b3;
+  --primary-hover: #004085;
+  --text-main: #212529;
+  --text-muted: #495057;
+  --bg-light: #f1f3f5;
+  --border-color: #dee2e6;
+  --card-bg: #ffffff;
+}
+
+/* Сброс базовых отступов и box-sizing */
+*, *::before, *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: #212529;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: var(--text-main);
   background-color: #ffffff;
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
 }
 
+/* Центральный ограничивающий контейнер */
 .container {
-  max-width: 1100px;
+  max-width: 1140px;
   margin: 0 auto;
   padding: 0 20px;
+  width: 100%;
 }
 
-/* ==========================================================================
-   2. ШАПКА И НАВИГАЦИЯ (АДАПТИВНАЯ)
-   ========================================================================== */
+/* Шапка и меню навигации */
 .header {
-  border-bottom: 1px solid #dee2e6;
-  background-color: #ffffff;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  background: #ffffff;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .menu {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap; /* Позволяет ссылкам переноситься на смартфонах */
-  gap: 15px;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 15px 20px;
+  gap: 25px;
 }
 
-.menu a {
+.menu-link {
   text-decoration: none;
-  color: #495057;
+  color: var(--text-muted);
   font-weight: 500;
-  font-size: 14px;
   transition: color 0.2s ease;
-  white-space: nowrap; /* Запрещает некрасивый разрыв слов внутри ссылки */
 }
 
-.menu a:hover {
-  color: #212529;
+.menu-link:hover {
+  color: var(--primary-color);
 }
 
-/* ==========================================================================
-   3. ГЛАВНЫЙ ЭКРАН (HERO SECTION) — ТЕКСТ + ФОТО
-   ========================================================================== */
+.back-link {
+  margin-right: auto; /* Отодвигает "На главную" влево, остальные ссылки вправо */
+}
+
+/* Главный блок (Hero Section) */
 .hero-section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+  gap: 50px;
   padding: 60px 0;
 }
 
@@ -72,246 +72,238 @@ body {
 }
 
 .hero-text h1 {
-  font-size: 42px;
+  font-size: 32px;
   font-weight: 700;
-  letter-spacing: -1px;
-  margin-bottom: 12px;
-  color: #212529;
+  margin-top: 0;
+  margin-bottom: 15px;
 }
 
 .hero-subtitle {
   font-size: 18px;
   font-weight: 500;
-  color: #495057;
-  margin-bottom: 24px;
+  color: var(--primary-color);
+  margin-bottom: 25px;
 }
 
 .hero-description {
   font-size: 16px;
-  color: #495057;
   margin-bottom: 20px;
 }
 
+.hero-quote {
+  font-style: italic;
+  color: var(--text-muted);
+  border-left: 3px solid var(--border-color);
+  padding-left: 15px;
+  margin-top: 20px;
+}
+
 .hero-photo {
-  flex-shrink: 0;
+  flex: 0 0 280px;
+  display: flex;
+  justify-content: center;
 }
 
 .profile-img {
-  width: 280px;
+  width: 100%;
+  max-width: 280px;
   height: 280px;
+  border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Секция ограничений (НЕ работаю) */
+.limits-section {
+  background-color: var(--bg-light);
+  padding: 40px;
   border-radius: 6px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  border: 1px solid var(--border-color);
+  margin-bottom: 60px;
 }
 
-/* Кнопка действия */
-.cta-button {
-  display: inline-block;
-  background-color: #212529;
-  color: #ffffff;
-  text-decoration: none;
-  padding: 12px 24px;
-  font-weight: 500;
-  font-size: 15px;
-  border-radius: 6px;
-  transition: background-color 0.2s ease;
-  margin-top: 10px;
-  text-align: center;
-}
-
-.cta-button:hover {
-  background-color: #495057;
-}
-
-/* ==========================================================================
-   4. БЛОКИ С КАРТОЧКАМИ (НАПРАВЛЕНИЯ И ОБРАЗОВАНИЕ)
-   ========================================================================== */
-.services-section, .background-section, .contacts-section {
-  padding: 60px 0;
-  border-top: 1px solid #dee2e6;
-}
-
-h2 {
-  font-size: 28px;
+.limits-title {
+  font-size: 18px;
   font-weight: 700;
-  margin-bottom: 32px;
-  letter-spacing: -0.5px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: var(--text-main);
 }
 
-/* Сетка для больших карточек (Психология / Процессы) */
+.limits-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+}
+
+.limits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+/* Секция образования */
+.education-section {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+/* Сетка (Grid) для карточек образования */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
 
 .service-card {
-  background-color: #ffffff;
-  border: 1px solid #dee2e6;
+  background: var(--card-bg);
+  padding: 30px;
+  border: 1px solid var(--border-color);
   border-radius: 6px;
-  padding: 32px;
 }
 
-.card-icon {
-  font-size: 30px;
-  margin-bottom: 16px;
-}
-
-.service-card h3, .service-card h4 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 8px;
+.service-card h4 {
+  font-size: 18px;
+  margin-top: 0;
+  margin-bottom: 10px;
 }
 
 .card-target {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: #868e96;
+  font-size: 14px;
   font-weight: 600;
-  margin-bottom: 20px;
+  color: var(--text-muted);
+  margin-bottom: 15px;
 }
 
 .card-list {
-  list-style: none;
-}
-
-.card-list li {
-  font-size: 15px;
-  color: #495057;
-  margin-bottom: 12px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 0;
   padding-left: 20px;
 }
 
-/* Красивые минималистичные точки у списков */
-.card-list li::before {
-  content: "•";
-  color: #adb5bd;
-  font-weight: bold;
-  position: absolute;
-  left: 0;
-  top: 0;
+/* Модификатор для карточки на всю ширину десктопа */
+.service-card.full-width {
+  grid-column: 1 / -1;
 }
 
-/* ==========================================================================
-   5. МЕЛКАЯ СЕТКА БЭКГРАУНДА (4 КОЛОНКИ)
-   ========================================================================== */
-.bg-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
+.tight-list {
+  gap: 15px;
 }
 
-.bg-item h4 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
+/* Секция контактов */
+.contacts-section {
+  border-top: 1px solid var(--border-color);
+  padding: 50px 0 60px 0;
 }
 
-.bg-item p {
-  font-size: 14px;
-  color: #495057;
-}
-
-/* ==========================================================================
-   6. БЛОК КОНТАКТОВ И ПОДВАЛ
-   ========================================================================== */
-.contacts-section p {
-  font-size: 16px;
-  color: #495057;
-  margin-bottom: 24px;
-  max-width: 600px;
+.contacts-description {
+  font-size: 15px;
+  margin-bottom: 25px;
 }
 
 .contacts-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
+  align-items: center;
+  gap: 20px;
 }
 
 .contact-item {
-  display: inline-block;
+  font-size: 15px;
+  color: var(--text-main);
   padding: 12px 20px;
-  border: 1px solid #dee2e6;
-  border-radius: 6px;
+  background: #f8f9fa;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+.email-item {
+  cursor: default;
+}
+
+.contact-link {
+  font-size: 15px;
   text-decoration: none;
-  color: #212529;
-  font-weight: 500;
-  font-size: 14px;
-  transition: background-color 0.2s ease;
+  padding: 12px 20px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
 
-a.contact-item:hover {
-  background-color: #f8f9fa;
+.b17-link {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  font-weight: 700;
 }
 
+.b17-link:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+}
+
+.vk-link {
+  color: var(--text-main);
+}
+
+.vk-link:hover {
+  background-color: #f1f3f5;
+  border-color: #adb5bd;
+}
+
+/* Подвал (Footer) */
 .footer {
-  padding: 40px 0;
-  border-top: 1px solid #dee2e6;
+  background-color: var(--bg-light);
   text-align: center;
-  background-color: #f8f9fa;
+  padding: 25px 0;
+  border-top: 1px solid var(--border-color);
+  font-size: 14px;
+  color: var(--text-muted);
 }
 
 .footer p {
-  font-size: 14px;
-  color: #868e96;
+  margin: 0;
 }
 
-/* ==========================================================================
-   7. УМНАЯ МОБИЛЬНАЯ АДАПТАЦИЯ (MEDIA QUERIES)
-   ========================================================================== */
+/* Адаптивность для мобильных устройств (Экран меньше 768px) */
 @media (max-width: 768px) {
-  /* Перестраиваем главный экран: фото теперь сверху, текст снизу */
   .hero-section {
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse; /* Фото сверху, текст снизу на мобилках */
     text-align: center;
     gap: 30px;
     padding: 40px 0;
   }
-
-  .hero-text h1 {
-    font-size: 32px; /* Чуть уменьшаем шрифт заголовка на телефонах */
-  }
-
-  .profile-img {
-    width: 220px;  /* Делаем фото чуть компактнее на мобильном экране */
-    height: 220px;
-  }
-
-  /* Центрируем кнопку и тексты */
-  .cta-button {
-    display: block;
-    max-width: 100%;
-  }
-
-  /* Адаптируем меню: ссылки стоят компактно */
-  .menu {
-    padding: 10px;
-    gap: 12px;
-  }
   
-  .menu a {
-    font-size: 13px;
+  .hero-quote {
+    border-left: none;
+    border-top: 2px solid var(--border-color);
+    padding-left: 0;
+    padding-top: 15px;
   }
 
-  /* Делаем списки в дисклеймерах в одну колонку на смартфонах */
-  #limits .card-list {
-    grid-template-columns: 1fr !important; 
+  .services-grid {
+    grid-template-columns: 1fr; /* Карточки встают в одну колонку */
   }
-  
-  /* Увеличиваем отступы в карточках для удобства чтения с экрана */
-  .service-card {
-    padding: 24px;
+
+  .service-card.full-width {
+    grid-column: auto;
   }
-  
-  /* Центрируем ссылки контактов на мобилках */
+
   .contacts-links {
     flex-direction: column;
     align-items: stretch;
   }
   
-  .contact-item {
+  .contact-item, .contact-link {
     text-align: center;
   }
 }
