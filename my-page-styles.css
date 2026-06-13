@@ -104,19 +104,18 @@ body {
   margin-top: 20px;
 }
 
-/* Исправлено для десктопа: убрали жесткий flex: 0 0 280px, который ломал адаптивность */
 .hero-photo {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Прямоугольное фото со скругленными углами и защитой от искажений */
 .profile-img {
   width: 280px;
-  height: 280px;
-  aspect-ratio: 1 / 1; 
-  flex-shrink: 0;       /* Запрещает браузеру сжимать картинку в овал */
-  border-radius: 50%;
+  height: auto;         /* Высота подстраивается автоматически, защищая от овалов */
+  max-height: 380px;    /* Ограничение, чтобы вертикальное фото не было гигантским */
+  border-radius: 6px;   /* Мягкие углы вместо круга */
   object-fit: cover;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
   display: block;
@@ -153,7 +152,7 @@ body {
   padding-left: 20px;
 }
 
-/* Секция образования */
+/* Секция образования и направлений */
 .education-section, .services-section {
   margin-bottom: 60px;
 }
@@ -165,7 +164,7 @@ body {
   margin-bottom: 30px;
 }
 
-/* Сетка (Grid) для карточек образования */
+/* Сетка (Grid) для карточек */
 .services-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -207,6 +206,24 @@ body {
 
 .tight-list {
   gap: 15px;
+}
+
+/* Блок бэкграунда на странице Scrum (4 колонки) */
+.bg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.bg-item h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.bg-item p {
+  font-size: 14px;
+  color: var(--text-muted);
 }
 
 /* Секция контактов */
@@ -305,24 +322,24 @@ body {
     padding-top: 15px;
   }
 
-  /* Жесткая блокировка пропорций: теперь ТОЛЬКО идеальный круг на любых iPhone */
+  /* Настройки прямоугольного фото для мобильных: пропорции никогда не поплывут */
   .profile-img {
-    width: 200px !important;
-    height: 200px !important;
-    max-width: 200px !important;
-    max-height: 200px !important;
-    aspect-ratio: 1 / 1 !important;
+    width: 220px !important;
+    height: auto !important;
+    max-height: 300px !important;
+    max-width: 220px !important;
+    border-radius: 6px !important; 
     flex-shrink: 0 !important;
   }
   
   .hero-photo {
-    flex: 0 0 200px !important; /* Усмиряем контейнер на мобильных */
-    width: 200px !important;
-    height: 200px !important;
+    flex: auto !important;
+    width: auto !important;
+    height: auto !important;
     margin: 0 auto; 
   }
 
-  /* Исправление меню на мобильных */
+  /* Исправление меню на мобильных: элементы в виде красивых кнопочек */
   .menu {
     gap: 8px;
     justify-content: center;
@@ -347,7 +364,7 @@ body {
   }
 
   .services-grid {
-    grid-template-columns: 1fr; /* Карточки встают в одну колонку */
+    grid-template-columns: 1fr; /* Карточки образования встают в одну колонку */
   }
 
   .service-card.full-width {
