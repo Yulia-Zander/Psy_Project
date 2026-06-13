@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Юлия Зандер | Практикующий КПТ-психолог</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="my-page-styles.css">
+  <link rel="stylesheet" href="./my-page-styles.css">
 </head>
 <body>
 
@@ -32,13 +32,15 @@
           «Не избавляю от всех проблем сразу, иду целенаправленно по вашему запросу. Регулярно повышаю свою квалификацию, хожу на интервизии и супервизии. В настоящее время прохожу дополнительное обучение на клинического психолога».
         </p>
       </div>
+      <div class="hero-photo">
+        <img src="./my_photo_1.jpg" alt="Юлия Зандер" class="profile-img" oncontextmenu="return false;" draggable="false">
+      </div>
     </section>
 
-    <!-- Дисклеймер -->
     <section id="limits" class="services-section" style="background-color: #f1f3f5; padding: 40px; border-radius: 6px; border: 1px solid #dee2e6;">
       <h3 style="font-weight: 700; margin-bottom: 15px; color: #212529;">С какими запросами я НЕ работаю:</h3>
-      <p style="font-size: 14px; color: #495057; margin-bottom: 15px;">В целях соблюдения профессиональной этики и обеспечения безопасности клиентов, я сознательно ограничиваю круг тем и не принимаю в работу:</p>
-      <ul class="card-list" style="grid-template-columns: 1fr 1fr; display: grid; gap: 10px;">
+      <p style="font-size: 14px; color: #495057; margin-bottom: 15px;">В целях соблюдения профессиональной ethics и обеспечения безопасности клиентов, я сознательно ограничиваю круг тем и не принимаю в работу:</p>
+      <ul class="card-list" style="display: flex; flex-direction: column; gap: 10px;">
         <li>Детей и подростков</li>
         <li>Клиентов с диагнозами ПРЛ, РПП, шизофрения</li>
         <li>Клиентов с суицидальными мыслями и намерениями</li>
@@ -47,12 +49,10 @@
       </ul>
     </section>
 
-    <!-- Профильное образование -->
     <section id="education-psy" class="background-section">
       <h2>Образование и квалификация</h2>
       <div class="services-grid">
         
-        <!-- Психология -->
         <div class="service-card">
           <h4>Профессиональная переподготовка</h4>
           <p class="card-target">Академия Современной Психологии (1168 часов)</p>
@@ -63,7 +63,6 @@
           </ul>
         </div>
 
-        <!-- Клинический блок -->
         <div class="service-card">
           <h4>Клинические и базовые дисциплины</h4>
           <p class="card-target">Институт перинатальной и репродуктивной психологии</p>
@@ -73,11 +72,10 @@
           </ul>
         </div>
 
-        <!-- Фундаментальная база -->
-        <div class="service-card" style="grid-column: span 2;">
+        <div class="service-card" style="grid-column: 1 / -1;">
           <h4>Академический базис (Высшее образование и ученая степень)</h4>
           <p class="card-target">Санкт-Петербургский Государственный Университет</p>
-          <ul class="card-list" style="grid-template-columns: 1fr 1fr; display: grid; gap: 15px;">
+          <ul class="card-list" style="display: flex; flex-direction: column; gap: 15px;">
             <li><strong>PhD (К.ф.-м.н.):</strong> защита диссертации в СПбГУ (2016 г.), направление — физика конденсированного состояния.</li>
             <li><strong>Магистратура Физфака:</strong> диплом магистра физики СПбГУ с отличием (Grade: 5.0 / 5.0) в 2013 г.</li>
             <li><strong>Магистратура Экономфака:</strong> диплом магистра СПбГЭУ по направлению «Общий и стратегический менеджмент» (2014 г.).</li>
@@ -89,7 +87,6 @@
 
   </main>
 
-  <!-- Блок контактов и B17 на странице психологии с защитой от роботов -->
   <section class="container" style="padding-bottom: 60px;">
     <div class="contacts-section" style="border-top: 1px solid #dee2e6; padding-top: 40px;">
       <h2>Записаться на консультацию</h2>
