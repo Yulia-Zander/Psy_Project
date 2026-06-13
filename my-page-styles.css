@@ -32,7 +32,9 @@ body {
   width: 100%;
 }
 
-/* Шапка и меню навигации */
+/* ==========================================================================
+   ШАПКА И МЕНЮ НАВИГАЦИИ (Правка: Выравнивание по центру)
+   ========================================================================== */
 .header {
   background: #ffffff;
   padding: 20px 0;
@@ -45,14 +47,17 @@ body {
 .menu {
   display: flex;
   align-items: center;
-  gap: 20px;
-  flex-wrap: wrap;   /* Позволяет ссылкам красиво переноситься на узких экранах */
+  justify-content: center; /* Выравнивает пункты меню строго по центру на главной */
+  gap: 35px;               /* Оптимальное десктопное расстояние между ссылками */
+  flex-wrap: wrap;         /* Защита от переполнения */
 }
 
 .menu-link {
   text-decoration: none;
   color: var(--text-muted);
   font-weight: 500;
+  font-size: 15px;
+  padding: 6px 0;
   transition: color 0.2s ease;
   white-space: nowrap;
 }
@@ -61,11 +66,9 @@ body {
   color: var(--primary-color);
 }
 
-.back-link {
-  margin-right: auto; /* Отодвигает "На главную" влево, остальные ссылки вправо */
-}
-
-/* Главный блок (Hero Section) */
+/* ==========================================================================
+   ГЛАВНЫЙ БЛОК (Hero Section) & УМНОЕ СКРЫТИЕ ФОТО
+   ========================================================================== */
 .hero-section {
   display: flex;
   align-items: center;
@@ -74,7 +77,7 @@ body {
 }
 
 .hero-text {
-  flex: 1; /* Растягивается на всю ширину, если блока .hero-photo нет */
+  flex: 1; /* Автоматически занимает 100% ширины, если .hero-photo скрыт */
 }
 
 .hero-text h1 {
@@ -104,15 +107,17 @@ body {
   margin-top: 20px;
 }
 
+/* Изначально скрываем контейнер фото, чтобы пустые теги с пробелами на 
+   других страницах (Scrum) не резервировали под себя место на десктопе */
 .hero-photo {
+  display: none;
+}
+
+/* Включаем отображение флекса только если внутри контейнера физически есть тег img */
+.hero-photo:has(img) {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-/* ЗАЩИТА: Если контейнер фото пустой (на других страницах), полностью скрываем его */
-.hero-photo:empty {
-  display: none;
 }
 
 /* Прямоугольное фото со скругленными углами и защитой от искажений */
@@ -126,12 +131,14 @@ body {
   display: block;
 }
 
-/* Глобальная защита: если у картинки потерялся или не указан путь src, скрываем её */
+/* Глобальный фильтр: если у картинки забыли указать src, она не оставляет рамок */
 img:not([src]), img[src=""] {
   display: none !important;
 }
 
-/* Секция ограничений (НЕ работаю) */
+/* ==========================================================================
+   СЕКЦИИ И КАРТОЧКИ (Правка: Стилизация превью-текста и кнопок)
+   ========================================================================== */
 .limits-section {
   background-color: var(--bg-light);
   padding: 40px;
@@ -162,7 +169,6 @@ img:not([src]), img[src=""] {
   padding-left: 20px;
 }
 
-/* Секция образования и направлений */
 .education-section, .services-section {
   margin-bottom: 60px;
 }
@@ -201,6 +207,12 @@ img:not([src]), img[src=""] {
   margin-bottom: 15px;
 }
 
+.card-preview-text {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
 .card-list {
   display: flex;
   flex-direction: column;
@@ -209,7 +221,38 @@ img:not([src]), img[src=""] {
   padding-left: 20px;
 }
 
-/* Модификатор для карточки на всю ширину десктопа */
+/* Кнопки */
+.cta-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Прозрачные второстепенные кнопки для карточек направлений */
+.cta-button.secondary-button {
+  background-color: transparent !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--text-main) !important;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.cta-button.secondary-button:hover {
+  background-color: var(--bg-light) !important;
+  border-color: var(--text-muted) !important;
+}
+
+/* Модификаторы для образования */
 .service-card.full-width {
   grid-column: 1 / -1;
 }
@@ -236,7 +279,9 @@ img:not([src]), img[src=""] {
   color: var(--text-muted);
 }
 
-/* Секция контактов */
+/* ==========================================================================
+   КОНТАКТЫ И ПОДВАЛ
+   ========================================================================== */
 .contacts-section {
   border-top: 1px solid var(--border-color);
   padding: 50px 0 60px 0;
@@ -276,17 +321,6 @@ img:not([src]), img[src=""] {
   transition: all 0.2s ease;
 }
 
-.b17-link {
-  border-color: var(--primary-color);
-  color: var(--primary-color);
-  font-weight: 700;
-}
-
-.b17-link:hover {
-  background-color: var(--primary-color);
-  color: #ffffff;
-}
-
 .vk-link {
   color: var(--text-main);
 }
@@ -296,7 +330,6 @@ img:not([src]), img[src=""] {
   border-color: #adb5bd;
 }
 
-/* Подвал (Footer) */
 .footer {
   background-color: var(--bg-light);
   text-align: center;
@@ -311,11 +344,11 @@ img:not([src]), img[src=""] {
 }
 
 /* ==========================================================================
-   УЛУЧШЕННАЯ АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ (Экран меньше 768px)
+   АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ (Экран меньше 768px)
    ========================================================================== */
 @media (max-width: 768px) {
   .hero-section {
-    flex-direction: column-reverse; /* Фото сверху, text снизу на мобилках */
+    flex-direction: column-reverse; /* Фото сверху, текст снизу на мобилках */
     text-align: center;
     gap: 25px;
     padding: 30px 0;
@@ -332,7 +365,7 @@ img:not([src]), img[src=""] {
     padding-top: 15px;
   }
 
-  /* Настройки прямоугольного фото для мобильных: пропорции никогда не поплывут */
+  /* Поведение фото на мобильных */
   .profile-img {
     width: 220px !important;
     height: auto !important;
@@ -342,14 +375,14 @@ img:not([src]), img[src=""] {
     flex-shrink: 0 !important;
   }
   
-  .hero-photo {
+  .hero-photo:has(img) {
     flex: auto !important;
     width: auto !important;
     height: auto !important;
     margin: 0 auto; 
   }
 
-  /* Исправление меню на мобильных */
+  /* Меню на мобильных превращается в аккуратную сетку */
   .menu {
     gap: 8px;
     justify-content: center;
@@ -362,19 +395,9 @@ img:not([src]), img[src=""] {
     border: 1px solid var(--border-color);
     border-radius: 4px;
   }
-  
-  .back-link {
-    margin-right: 0; 
-    width: 100%; /* Ссылка "На главную" гарантированно встает на самый верх по центру */
-    text-align: center;
-    background-color: transparent;
-    border: none;
-    font-weight: 600;
-    padding-bottom: 4px;
-  }
 
   .services-grid {
-    grid-template-columns: 1fr; /* Карточки образования встают в одну колонку */
+    grid-template-columns: 1fr; /* Карточки выстраиваются вертикально */
   }
 
   .service-card.full-width {
