@@ -10,12 +10,14 @@
 <body>
 
   <header class="header">
-    <nav class="menu">
-      <a href="index.html">Главная</a> 
-      <a href="psychology.html">Психология</a>
-      <a href="scrum.html">Процессы и Scrum</a>
-      <a href="#contacts">Контакты</a>
-    </nav>
+    <div class="container">
+      <nav class="menu">
+        <a href="index.html" class="menu-link">Главная</a> 
+        <a href="psychology.html" class="menu-link">Психология</a>
+        <a href="scrum.html" class="menu-link">Процессы и Scrum</a>
+        <a href="#contacts" class="menu-link">Контакты</a>
+      </nav>
+    </div>
   </header>
 
   <main class="container">
@@ -43,39 +45,41 @@
           <div class="card-icon">🧠</div>
           <h3>Психологическое консультирование</h3>
           <p class="card-target">Индивидуальная работа в когнитивно-поведенческом подходе (КПТ, ACT)</p>
-          <p class="card-preview-text" style="font-size: 14px; color: #495057; margin-bottom: 20px;">
+          <p class="card-preview-text">
             Работа с повышенной тревогой, страхами, проблемами со сном и нестабильной самооценкой. Целенаправленное движение по вашему запросу без обещания быстрых таблеток.
           </p>
-          <a href="psychology.html" class="cta-button" style="background-color: transparent; color: #212529; border: 1px solid #212529; padding: 8px 16px; font-size: 13px;">Подробнее об услуге &rarr;</a>
+          <a href="psychology.html" class="cta-button secondary-button">Подробнее об услуге &rarr;</a>
         </div>
 
         <div class="service-card">
           <div class="card-icon">⚙️</div>
           <h3>Организация процессов и Scrum</h3>
           <p class="card-target">Оптимизация R&D, фасилитация командных сессий и консалтинг</p>
-          <p class="card-preview-text" style="font-size: 14px; color: #495057; margin-bottom: 20px;">
+          <p class="card-preview-text">
             Аудит цепочки поставки ценности (Time-to-Market), масштабирование по фреймворку LeSS, запуск Kanban-систем и профессиональная фасилитация ретроспектив.
           </p>
-          <a href="scrum.html" class="cta-button" style="background-color: transparent; color: #212529; border: 1px solid #212529; padding: 8px 16px; font-size: 13px;">Подробнее для бизнеса &rarr;</a>
+          <a href="scrum.html" class="cta-button secondary-button">Подробнее для бизнеса &rarr;</a>
         </div>
 
       </div>
     </section>
 
-   <!-- Контакты с защитой от спам-ботов -->
+    <!-- Контакты с защитой от спам-ботов -->
     <section id="contacts" class="contacts-section">
       <h2>Контакты для связи</h2>
       <p>Если у вас есть конкретный запрос — вы можете написать мне на почту (скопируйте адрес и замените текст в скобках на символ @) или перейти в социальные сети:</p>
       <div class="contacts-links">
-        <span class="contact-item" style="cursor: default;">📧 Email: startjuli <strong>[собака]</strong> gmail.com</span>
-        <a href="https://vk.com/egorovayuli" target="_blank" class="contact-item">🌐 ВКонтакте</a>
+        <span class="contact-item email-item">📧 Email: startjuli <strong>[собака]</strong> gmail.com</span>
+        <a href="https://vk.com/egorovayuli" target="_blank" rel="noopener" class="contact-link vk-link">🌐 ВКонтакте</a>
       </div>
     </section>
 
   </main>
 
   <footer class="footer">
-    <p>&copy; Юлия Зандер • Санкт-Петербург / Белград</p>
+    <div class="container">
+      <p>&copy; Юлия Зандер • Санкт-Петербург / Белград</p>
+    </div>
   </footer>
 
 </body>
